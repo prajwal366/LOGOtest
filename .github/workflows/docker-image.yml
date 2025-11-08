@@ -29,10 +29,9 @@ jobs:
         timeout: "60s"
         command_timeout: "30m"
         script: |
-          sudo -u jenkins bash -c '
-          cd /hone/jenkins/
+            echo "Connected successfully!"
+            cd /home/ubuntu/LOGOtest
+            git pull origin main
 
-          git pull origin master
-          '
 
       
