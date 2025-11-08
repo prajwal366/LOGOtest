@@ -29,6 +29,9 @@ jobs:
           timeout: "60s"
           command_timeout: "30m"
           script: |
-            sudo -u ec2-user bash -c '
+            sudo -u jenkins bash -c '
+            cd /hone/jenkins/
+
+            git pull origin master
 
       
