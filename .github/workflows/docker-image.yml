@@ -19,6 +19,10 @@ jobs:
 
     - name: Add command 
       run: echo "Hello World !"
+    - name: Debug environment
+      run: |
+           echo "Host: ${{ secrets.SSH_HOST }}"
+
 
     - name: Deploy via SSH
       uses: appleboy/ssh-action@v1.0.0
