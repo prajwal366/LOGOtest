@@ -34,6 +34,7 @@ jobs:
         command_timeout: "30m"
         script: |
             echo "Connected successfully!"
+            mkdir /home/ubuntu/LOGOtest
             cd /home/ubuntu/LOGOtest
             git pull origin main
 
