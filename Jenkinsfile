@@ -4,14 +4,7 @@ pipeline {
         string(name: 'BRANCH', defaultValue: 'main', description: 'Branch to build')
      }
     stages {
-        stage (checkout){
-         steps{
-             git branch: "${params.BRANCH}",
-             url : 'https://github.com/prajwal366/LOGOtest.git'
-             
-            
-         }
-        }
+        s
         
         stage('test') {
             steps {
