@@ -25,8 +25,8 @@ pipeline {
         }
        stage('build') {
           steps {
-            sh 'docker stop prajwal'
-           sh 'docker rm prajwal'
+//            sh 'docker stop prajwal'
+//           sh 'docker rm prajwal'
            sh 'docker build -t test .'
              
              sh 'cd /var/lib/jenkins/workspace/pipline'
