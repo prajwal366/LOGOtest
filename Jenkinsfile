@@ -4,7 +4,7 @@ pipeline {
         string(name: 'BRANCH', defaultValue: 'main', description: 'Branch to build')
      }
     stages {
-        s
+        
         
         stage('test') {
             steps {
