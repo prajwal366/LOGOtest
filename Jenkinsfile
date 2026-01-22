@@ -42,13 +42,15 @@ pipeline {
           }
     }
        post {
-           failure {
-               mail to : "prajwalwankhede003@gmail.com"
-               subject : "Build failed: ${env.JOB_NAME}
-               body : "Check the logs"
+    failure {
+        mail(
+            to: "prajwalwankhede003@gmail.com",
+            subject: "Build failed: ${env.JOB_NAME}",
+            body: "Check the logs"
+        )
+    }
+}
 
-           }
-       }
            
 
 }
