@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Hello World'
                 sh 'docker ps'
-                sh 'mvn test'
+//                sh 'mvn test'
                 
                 
             
@@ -32,6 +32,7 @@ pipeline {
              sh 'cd /var/lib/jenkins/workspace/pipline'
              
              sh 'mvn clean compile package'
+              sh 'mvn test'
             
             
 //            sh 'cd /var/lib/jenkins/workspace/pipeline/'
