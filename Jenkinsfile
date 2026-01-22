@@ -42,7 +42,7 @@ pipeline {
           }
     }
        post {
-    failure {
+    success {
         mail(
             to: "prajwalwankhede003@gmail.com",
             subject: "Build failed: ${env.JOB_NAME}",
