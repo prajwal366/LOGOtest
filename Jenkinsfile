@@ -26,6 +26,7 @@ pipeline {
              
              sh 'mvn clean compile package'
               sh 'mvn test'
+              sh 'mvn package'
             
             
 //            sh 'cd /var/lib/jenkins/workspace/pipeline/'
