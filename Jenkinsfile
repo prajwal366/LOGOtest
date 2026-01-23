@@ -7,11 +7,7 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git branch: params.BRANCH, url: 'YOUR_GIT_REPO_URL'
-            }
-        }
+       
 
         stage('Test') {
             steps {
