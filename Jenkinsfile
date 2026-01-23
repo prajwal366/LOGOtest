@@ -16,7 +16,7 @@ pipeline {
             post {
                 always {
                     // ✅ Publish JUnit reports
-                    junit 'target/surefire-reports/*.xml'
+                    junit 'target/surefire/*.xml'
                 }
             }
         }
