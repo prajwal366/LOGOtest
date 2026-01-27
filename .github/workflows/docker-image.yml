@@ -24,19 +24,7 @@ jobs:
            echo "Host: ${{ secrets.SSH_HOST }}"
 
 
-    - name: Deploy via SSH
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }} 
-        key: ${{ secrets.SSH_KEY }}
-        timeout: "60s"
-        command_timeout: "30m"
-        script: |
-            echo "Connected successfully!"
-            mkdir /home/ubuntu/LOGOtest
-            cd /home/ubuntu/LOGOtest
-            git pull origin master
+    
 
 
       
