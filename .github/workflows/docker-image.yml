@@ -7,29 +7,44 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
-    - name: Add command 
+    - name: Set Docker image tag
+      run: echo "IMAGE_TAG=$(date +%s)" >> $GITHUB_ENV
+
+    - name: Build Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:${{ env.IMAGE_TAG }}
+
+    - name: Add command
       run: echo "Hello World !"
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ap-south-1
-    - name: pull the image
-      run: docker push my-image-name:$(date +%s)
+
+    - name: Login to AWS ECR
+      run: |
+        aws ecr get-login-password --region ap-south-1 | \
+        docker login --username AWS --password-stdin 123456789012.dkr.ecr.ap-south-1.amazonaws.com
+
+    - name: Tag image for ECR
+      run: |
+        docker tag my-image-name:${{ env.IMAGE_TAG }} 123456789012.dkr.ecr.ap-south-1.amazonaws.com/my-image-name:${{ env.IMAGE_TAG }}
+
+    - name: Push image to ECR
+      run: |
+        docker push 123456789012.dkr.ecr.ap-south-1.amazonaws.com/my-image-name:${{ env.IMAGE_TAG }}
+
     - name: Debug environment
       run: |
-           echo "Host: ${{ secrets.SSH_HOST }}"
+        echo "Host: ${{ secrets.SSH_HOST }}"
 
 
     
