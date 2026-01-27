@@ -19,6 +19,8 @@ jobs:
 
     - name: Add command 
       run: echo "Hello World !"
+    - name: pull the image
+      run: docker pull my-image-name 
     - name: Debug environment
       run: |
            echo "Host: ${{ secrets.SSH_HOST }}"
