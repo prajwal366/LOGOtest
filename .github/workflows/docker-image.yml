@@ -19,8 +19,14 @@ jobs:
 
     - name: Add command 
       run: echo "Hello World !"
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+       aws-region: us-east-1
     - name: pull the image
-      run: docker pull my-image-name:$(date +%s)
+      run: docker push my-image-name:$(date +%s)
     - name: Debug environment
       run: |
            echo "Host: ${{ secrets.SSH_HOST }}"
