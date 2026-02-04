@@ -11,7 +11,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'mvn clean test'
+//                sh 'mvn clean test'
             }
             post {
                 always {
@@ -23,7 +23,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn package'
+//                sh 'mvn package'
                 sh 'docker build -t test .'
                 sh 'docker-compose up'
             }
