@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
 //                sh 'mvn package'
-                sh 'docker build -t test /app/.'
+                sh 'docker build -t test app/.'
                 sh 'docker-compose up'
             }
         }
