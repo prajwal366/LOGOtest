@@ -25,6 +25,7 @@ pipeline {
             steps {
                 sh 'mvn package'
                 sh 'docker build -t test .'
+                sh 'docker-compose up'
             }
         }
 
@@ -37,22 +38,7 @@ pipeline {
         }
     }
 
-    post {
-        success {
-            mail(
-                to: "prajwalwankhede003@gmail.com",
-                subject: "Build SUCCESS: ${env.JOB_NAME}",
-                body: "Build succeeded ✅\n${env.BUILD_URL}"
-            )
-        }
-        failure {
-            mail(
-                to: "prajwalwankhede003@gmail.com",
-                subject: "Build FAILED: ${env.JOB_NAME}",
-                body: "Build failed ❌\nCheck logs: ${env.BUILD_URL}"
-            )
-        }
-    }
+    
 }
         
 
