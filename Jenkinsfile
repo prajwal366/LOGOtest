@@ -13,12 +13,7 @@ pipeline {
             steps {
                 sh 'mvn clean test'
             }
-            post {
-                always {
-                    // ✅ Publish JUnit reports
-                    junit 'target/surefire/*.xml'
-                }
-            }
+            
         }
 
         stage('Build') {
