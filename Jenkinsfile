@@ -21,9 +21,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'docker stop prajwal || true'
-                sh 'docker rm prajwal || true'
-                sh 'docker run -d -p 80:80 --name prajwal test'
+                sh 'docker stop pipline2_web_1 || true'
+                sh 'docker rm pipline2_web_1 || true'
+//                sh 'docker run -d -p 80:80 --name prajwal test'
             }
         }
     }
