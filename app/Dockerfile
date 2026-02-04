@@ -1,20 +1,10 @@
-FROM php:8.0.9-apache as builder
+FROM php:8.0.9-apache AS builder
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+    git \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN useradd -s /bin/bash -m vscode
 
 CMD ["apache2-foreground"]
-
-FROM builder as dev-envs
-
-RUN <<EOF
-apt-get update
-apt-get install -y --no-install-recommends git
-EOF
-
-RUN <<EOF
-useradd -s /bin/bash -m vscode
-groupadd docker
-usermod -aG docker vscode
-EOF
-# install Docker tools (cli, buildx, compose)
-COPY --from=gloursdocker/docker / /
-
-CMD ["apache2-foreground"] 
