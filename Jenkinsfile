@@ -15,8 +15,8 @@ pipeline {
             steps {
 //                sh 'mvn package'
  //               sh 'docker build -t test app/.'
-                h 'docker stop pipline2_web_1 || true'
-                sh 'docker rm pipline2_web_1 || true'
+                sh 'docker stop pipline_web_1 || true'
+                sh 'docker rm pipline_web_1 || true'
                 
             }
         }
