@@ -15,7 +15,7 @@ pipeline {
             steps {
 //                sh 'mvn package'
  //               sh 'docker build -t test app/.'
-                sh 'docker-compose up'
+                sh 'docker-compose up -d'
             }
         }
 
