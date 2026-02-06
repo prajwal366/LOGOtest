@@ -17,7 +17,7 @@ jobs:
       run: echo "IMAGE_TAG=$(date +%s)" >> $GITHUB_ENV
 
     - name: Build Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:${{ env.IMAGE_TAG }}
+      run: docker build app/. --file Dockerfile --tag my-image-name:${{ env.IMAGE_TAG }}
 
     - name: Add command
       run: echo "Hello World !"
