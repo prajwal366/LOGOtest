@@ -26,10 +26,17 @@ pipeline {
 //                sh 'docker-compose up -d'
                 sh 'docker build -t test app/.'
                 sh 'trivy image test:latest'
-                
-//                sh 'docker run -d -p 80:80 --name prajwal test'
             }
         }
+        stage('synk security scan') {
+            steps {
+                sh 'synk test'
+            }
+        }
+                
+//                sh 'docker run -d -p 80:80 --name prajwal test'
+            
+        
     }
 
     
