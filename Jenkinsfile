@@ -30,6 +30,7 @@ pipeline {
         }
         stage('synk security scan') {
             steps {
+                sh 'snyk auth snyk_uat.1fcad39e.eyJlIjoxNzc0OTM4OTYwLCJoIjoic255ay5pbyIsImoiOiJBWnpyRDdOMjRlNUJUWjZvTV9TRDB3IiwicyI6InU2NEJkcWt1UkR5dDI0SURqN09SVUEiLCJ0aWQiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFBIn0.ztsux5gJUp1fWXn-Yf-LRRVSA0vSryiTKMoFxaRRxWFaN2gge2ZP3XVdJb0t2KzPzHuagkfStlmypXnD5-s3BQ'
                 sh 'snyk test'
             }
         }
