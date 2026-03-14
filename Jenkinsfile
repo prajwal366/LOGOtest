@@ -23,7 +23,10 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'docker-compose up -d'
+//                sh 'docker-compose up -d'
+                sh 'docker build -t test app/.'
+                sh 'trivy image test:latest'
+                
 //                sh 'docker run -d -p 80:80 --name prajwal test'
             }
         }
