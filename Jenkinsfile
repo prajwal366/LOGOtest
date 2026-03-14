@@ -30,7 +30,7 @@ pipeline {
         }
         stage('synk security scan') {
             steps {
-                sh 'synk test'
+                sh 'snyk test'
             }
         }
                 
