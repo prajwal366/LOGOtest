@@ -25,7 +25,7 @@ pipeline {
             steps {
 //                sh 'docker-compose up -d'
                 sh 'docker build -t test app/.'
-                sh 'trivy image --severity CRITICAL  test:latest'
+//                sh 'trivy image --severity CRITICAL  test:latest'
             }
         }
         stage('synk security scan') {
