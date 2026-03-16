@@ -36,11 +36,11 @@ jobs:
 
     - name: Tag image for ECR
       run: |
-        docker tag prajwal:latest 801887695812.dkr.ecr.ap-south-1.amazonaws.com/my-image-name:${{ env.IMAGE_TAG }}
+        docker tag prajwal:latest 801887695812.dkr.ecr.ap-south-1.amazonaws.com/soho-ui:${{ env.IMAGE_TAG }}
 
     - name: Push image to ECR
       run: |
-        docker push 801887695812.dkr.ecr.ap-south-1.amazonaws.com/my-image-name:${{ env.IMAGE_TAG }} 
+        docker push 801887695812.dkr.ecr.ap-south-1.amazonaws.com/soho-ui:${{ env.IMAGE_TAG }} 
 
     - name: Debug environment
       run: |
