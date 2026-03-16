@@ -46,6 +46,15 @@ jobs:
       run: |
         echo "Host: ${{ secrets.SSH_HOST }}"
 
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+           docker pull 801887695812.dkr.ecr.ap-south-1.amazonaws.com/soho-ui:${{ env.IMAGE_TAG }} 
+
 
     
 
