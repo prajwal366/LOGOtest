@@ -22,7 +22,7 @@ pipeline {
                 withSonarQubeEnv('SonarQube') {
                     sh '''
                     mvn sonar:sonar \
-                    -Dsonar.projectKey=test \
+                    -Dsonar.projectKey=Test \
                     -Dsonar.host.url=http://localhost:9000 \
                     -Dsonar.login=$SONAR_TOKEN
                     '''
