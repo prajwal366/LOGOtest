@@ -17,6 +17,7 @@ pipeline {
             steps {
 //                sh 'mvn package'
  //               sh 'docker build -t test app/.'
+                 sh 'docker build -t test app/.'
                 sh 'docker stop pipline_web_1 || true'
                 sh 'docker rm pipline_web_1 || true'
                 
@@ -36,7 +37,7 @@ pipeline {
         stage('Deploy') {
             steps {
 //                sh 'docker-compose up -d'
-                sh 'docker build -t test app/.'
+//                sh 'docker build -t test app/.'
 //                sh 'trivy image --severity CRITICAL  test:latest'
             }
         }
