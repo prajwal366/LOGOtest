@@ -4,7 +4,9 @@ pipeline {
     parameters {
         string(name: 'BRANCH', defaultValue: 'main', description: 'Branch to build')
     }
-
+   environment {
+        SONAR_TOKEN = credentials('sonar-token')
+    }
     stages {
 
        
@@ -18,6 +20,16 @@ pipeline {
                 sh 'docker stop pipline_web_1 || true'
                 sh 'docker rm pipline_web_1 || true'
                 
+            }
+        }
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
+                    mvn sonar:sonar \
+                    -Dsonar.login=$SONAR_TOKEN
+                    '''
+                }
             }
         }
 
