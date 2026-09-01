@@ -11,5 +11,7 @@ RUN useradd -s /bin/bash -m vscode
 # Set Apache ServerName
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
+COPY .  /var/www/html/
+
 # Start Apache in foreground
 CMD ["apache2-foreground"]
